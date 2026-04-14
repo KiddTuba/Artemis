@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artemis II: Journey to the Moon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle infinite ease-in-out;
+        }
+        .tab-active {
+            background-color: #4f46e5 !important;
+            color: white !important;
+            box-shadow: 0 0 15px rgba(99,102,241,0.5);
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-indigo-500 selection:text-white overflow-x-hidden">
+
+    <!-- Dynamic Starry Background -->
+    <div id="star-container" class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/40 via-slate-950 to-slate-950"></div>
+    </div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4 py-8">
+        
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <img src="news-071919d.jpg" alt="Artemis Logo" class="mx-auto h-32 md:h-48 object-contain mb-6 drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]" />
+            <div class="flex justify-center items-center gap-3 mb-4">
+                <i class="fa-solid fa-moon text-4xl text-slate-200"></i>
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400">
+                    Artemis II: Journey to the Moon
+                </h1>
+            </div>
+            <p class="text-lg md:text-xl text-indigo-200 max-w-2xl mx-auto">
+                Discover the incredible stories of Teamwork, Hard Work, and Perseverance from the crew returning humanity to the Moon.
+            </p>
+        </header>
+
+        <!-- ================= HOME VIEW ================= -->
+        <div id="home-view" class="space-y-16 fade-in">
+            
+            <!-- LEGACY SECTION: AS-204 -->
+            <div class="bg-slate-900/80 backdrop-blur-md border border-slate-700/50 rounded-3xl p-8 md:p-12 overflow-hidden shadow-2xl">
+                <div class="flex flex-col md:flex-row items-center gap-10">
+                    <div class="w-full md:w-1/3 flex flex-col items-center gap-6">
+                        <img src="Apollo_program.svg" alt="Apollo Program" class="w-48 drop-shadow-xl" />
+                        <img src="bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="Apollo Patches" class="w-full max-w-xs rounded-2xl shadow-lg opacity-90 hover:opacity-100 transition-opacity" />
+                    </div>
+                    <div class="w-full md:w-2/3">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 border-b border-slate-700 pb-4">Standing on the Shoulders of Giants</h2>
+                        <p class="text-xl text-indigo-100 leading-relaxed mb-6">
+                            The Artemis generation carries forward the immense legacy of the Apollo missions. But the path to the stars is paved with profound challenges.
+                        </p>
+                        <div class="bg-slate-950/50 border-l-4 border-red-500 p-6 rounded-r-xl">
+                            <h3 class="text-2xl font-semibold text-red-400 mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-triangle-exclamation"></i> The Legacy of AS-204
+                            </h3>
+                            <p class="text-slate-300 text-lg leading-relaxed">
+                                In 1967, the Apollo 1 (AS-204) tragedy claimed the lives of astronauts Gus Grissom, Ed White, and Roger Chaffee. Through this heartbreaking failure, NASA learned its hardest lessons. It forged a culture of relentless perseverance, extreme ownership, and safety that ultimately put humans on the moon. Today, the Artemis crew honors their sacrifice by carrying that same torch of resilience forward.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONCERNS & FEARS SECTION: ORION -->
+            <div class="bg-slate-900/80 backdrop-blur-md border border-slate-700/50 rounded-3xl p-8 md:p-12 overflow-hidden shadow-2xl">
+                <div class="flex flex-col md:flex-row-reverse items-center gap-10">
+                    <div class="w-full md:w-5/12 flex justify-center">
+                        <img src="Orion Spacecraft.webp" alt="Orion Spacecraft" class="w-full max-w-md rounded-2xl shadow-[0_0_30px_rgba(255,255,255,0.1)] border border-slate-600" />
+                    </div>
+                    <div class="w-full md:w-7/12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 border-b border-slate-700 pb-4">The Crucible of Re-entry</h2>
+                        <p class="text-xl text-indigo-100 leading-relaxed mb-6">
+                            While Artemis II builds upon previous testing, it carries unprecedented risks. Exploring deep space requires overcoming incredible fears and engineering hurdles.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="bg-orange-950/30 border border-orange-500/30 p-5 rounded-xl">
+                                <h4 class="text-orange-400 font-bold text-xl mb-2"><i class="fa-solid fa-fire text-orange-500"></i> The Heat Shield Adjustments</h4>
+                                <p class="text-slate-300">Following the uncrewed Artemis I mission, engineers discovered unexpected charring and loss of material on the Orion spacecraft's heat shield. The team had to meticulously analyze the failure, adapt the vehicle's trajectory, and ensure the adjustments will hold up to a blazing Mach 32 re-entry.</p>
+                            </div>
+                            <div class="bg-blue-950/30 border border-blue-500/30 p-5 rounded-xl">
+                                <h4 class="text-blue-400 font-bold text-xl mb-2"><i class="fa-solid fa-parachute-box text-blue-500"></i> The Fear of Landing</h4>
+                                <p class="text-slate-300">Returning from the moon means hitting the Earth's atmosphere at nearly 25,000 mph, generating temperatures of 5,000°F (2,760°C). The crew faces the immense psychological weight of trusting the automated parachute deployment systems. Overcoming the fear of that violent, fiery descent and pinpoint ocean splashdown is a massive mental hurdle they train for daily.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CREW SECTION -->
+            <div class="space-y-8">
+                <div class="text-center bg-slate-900/40 p-8 rounded-3xl border border-slate-800 shadow-xl">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">Meet Your Crew</h2>
+                    <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-8">
+                        <img src="s-l400.jpg" alt="Artemis II Patch" class="w-32 md:w-40 drop-shadow-lg hover:scale-105 transition-transform" />
+                        <img src="artemis-ii-crew.jpg" alt="Artemis II Crew" class="w-full max-w-3xl rounded-3xl shadow-[0_0_40px_rgba(99,102,241,0.2)] border border-slate-700 hover:border-indigo-500 transition-colors object-cover" />
+                        <img src="images (1).jfif" alt="Artemis II Patch Variant" class="w-32 md:w-40 drop-shadow-lg rounded-xl hover:scale-105 transition-transform" />
+                    </div>
+                </div>
+
+                <!-- Dynamic Astronaut Grid -->
+                <div id="astronaut-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Cards injected by JS -->
+                </div>
+            </div>
+
+            <!-- BAND / FUN FACT SECTION -->
+            <div class="bg-gradient-to-r from-slate-900 to-indigo-950/80 backdrop-blur-md border border-indigo-500/30 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 shadow-2xl">
+                <img src="images.jfif" alt="Band Builds Musicians" class="w-full md:w-2/5 rounded-2xl shadow-[0_0_30px_rgba(0,0,0,0.5)] -rotate-2 hover:rotate-0 transition-transform duration-500 border border-slate-700" />
+                <div class="flex-1">
+                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-3">
+                        <span>🥁</span> Band Builds More Than Musicians! <span>🎹</span>
+                    </h3>
+                    <p class="text-xl text-indigo-200 leading-relaxed mb-6">
+                        Before they were navigating the cosmos, they were keeping the tempo. Commander <strong>Reid Wiseman</strong> is a dedicated percussionist, and Mission Specialist <strong>Christina Koch</strong> plays the piano. 
+                    </p>
+                    <p class="text-lg text-slate-300 leading-relaxed bg-slate-950/40 p-6 rounded-xl border border-slate-800">
+                        Turns out, the ultimate training for a space mission happens in the music room. Whether you are launching a rocket into orbit or playing a symphony, it all comes down to the same core principles: perfect timing, relentless practice, and incredible teamwork!
+                    </p>
+                </div>
+            </div>
+
+            <!-- MISSION PREP CHALLENGE CTA -->
+            <div class="bg-gradient-to-r from-indigo-900/50 to-purple-900/50 rounded-3xl p-8 md:p-12 text-center border border-indigo-500/30 backdrop-blur-md shadow-2xl">
+                <i class="fa-solid fa-award text-6xl text-yellow-400 mb-6 drop-shadow-[0_0_15px_rgba(250,204,21,0.5)]"></i>
+                <h2 class="text-3xl font-bold mb-4">Mission Prep Challenge</h2>
+                <p class="text-indigo-200 mb-8 max-w-2xl mx-auto text-lg">
+                    Do you have the mindset of an Artemis astronaut? Test your knowledge on how to handle fear, doubt, and massive challenges.
+                </p>
+                <button onclick="startQuiz()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 px-8 rounded-full transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(99,102,241,0.5)] inline-flex items-center gap-2 mx-auto text-lg">
+                    Start Training <i class="fa-solid fa-rocket"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- ================= DOSSIER VIEW ================= -->
+        <div id="dossier-view" class="hidden fade-in">
+            <button onclick="goHome()" class="flex items-center gap-2 text-indigo-300 hover:text-white mb-6 transition-colors text-lg font-medium">
+                <i class="fa-solid fa-arrow-left"></i> Return to Crew Roster
+            </button>
+
+            <div class="bg-slate-900/80 backdrop-blur-md border border-slate-700 rounded-3xl overflow-hidden shadow-2xl">
+                
+                <!-- Dynamic Header -->
+                <div id="dossier-header" class="relative flex flex-col md:flex-row items-center px-8 py-10 md:px-12 gap-8 overflow-hidden">
+                    <div class="absolute inset-0 bg-black/40 z-0"></div>
+                    <img id="dossier-img" src="" alt="" class="relative z-10 w-48 h-48 md:w-56 md:h-56 object-cover rounded-full border-4 border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+                    <div class="relative z-10 text-center md:text-left">
+                        <h2 id="dossier-name" class="text-4xl md:text-6xl font-bold text-white mb-2 shadow-sm drop-shadow-md"></h2>
+                        <p id="dossier-role" class="text-xl md:text-2xl text-white/90 font-medium"></p>
+                    </div>
+                </div>
+
+                <div class="p-6 md:p-10">
+                    <blockquote id="dossier-quote" class="text-xl md:text-2xl italic text-slate-300 text-center mb-10 max-w-3xl mx-auto font-light leading-relaxed"></blockquote>
+
+                    <!-- Tabs -->
+                    <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8">
+                        <button onclick="switchTab('journey')" id="tab-journey" class="dossier-tab flex items-center gap-2 px-5 py-3 rounded-full font-medium transition-all bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white">
+                            <i class="fa-solid fa-star"></i> The Dream
+                        </button>
+                        <button onclick="switchTab('struggles')" id="tab-struggles" class="dossier-tab flex items-center gap-2 px-5 py-3 rounded-full font-medium transition-all bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white">
+                            <i class="fa-solid fa-shield-halved"></i> Perseverance
+                        </button>
+                        <button onclick="switchTab('teamwork')" id="tab-teamwork" class="dossier-tab flex items-center gap-2 px-5 py-3 rounded-full font-medium transition-all bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white">
+                            <i class="fa-solid fa-users"></i> Teamwork
+                        </button>
+                        <button onclick="switchTab('goal')" id="tab-goal" class="dossier-tab flex items-center gap-2 px-5 py-3 rounded-full font-medium transition-all bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white">
+                            <i class="fa-solid fa-bullseye"></i> The Goal
+                        </button>
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div class="bg-slate-950/50 rounded-2xl p-8 border border-slate-800 min-h-[200px] flex items-center justify-center text-center">
+                        <p id="dossier-content" class="text-lg md:text-xl text-slate-200 leading-relaxed max-w-4xl"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= QUIZ VIEW ================= -->
+        <div id="quiz-view" class="hidden max-w-3xl mx-auto mt-10 fade-in">
+            <div class="flex items-center justify-between mb-8">
+                <button onclick="goHome()" class="text-slate-400 hover:text-white flex items-center gap-2 transition-colors">
+                    <i class="fa-solid fa-arrow-left"></i> Cancel Training
+                </button>
+                <div id="quiz-progress" class="text-indigo-400 font-bold bg-indigo-950/50 px-4 py-2 rounded-full border border-indigo-900">
+                    Scenario 1 of 4
+                </div>
+            </div>
+
+            <div class="bg-slate-900/80 backdrop-blur-md border border-slate-700 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 -mr-16 -mt-16 text-slate-800/50">
+                    <i class="fa-solid fa-moon text-[16rem]"></i>
+                </div>
+                
+                <h3 id="quiz-question" class="text-2xl md:text-3xl font-bold mb-8 text-white relative z-10 leading-tight"></h3>
+
+                <div id="quiz-answers" class="space-y-4 relative z-10">
+                    <!-- Answers injected here -->
+                </div>
+
+                <div id="quiz-explanation-box" class="hidden mt-8 p-6 bg-indigo-950/50 border border-indigo-500/30 rounded-xl fade-in">
+                    <p class="text-indigo-200 text-lg mb-6">
+                        <strong id="quiz-result-title"></strong>
+                        <span id="quiz-explanation-text"></span>
+                    </p>
+                    <button onclick="nextQuestion()" id="quiz-next-btn" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 rounded-xl transition-colors flex justify-center items-center gap-2">
+                        Next Scenario <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= QUIZ RESULTS VIEW ================= -->
+        <div id="results-view" class="hidden max-w-2xl mx-auto text-center mt-12 fade-in">
+            <div class="bg-slate-900/80 backdrop-blur-md border border-slate-700 rounded-3xl p-10 md:p-16 shadow-2xl">
+                <i id="results-icon" class="fa-solid fa-award text-7xl mx-auto mb-6"></i>
+                <h2 class="text-4xl font-bold mb-4 text-white">Mission Report</h2>
+                <p id="results-score" class="text-2xl text-indigo-300 mb-8"></p>
+                
+                <div class="bg-slate-950/50 p-6 rounded-2xl border border-slate-800 mb-10">
+                    <p id="results-message" class="text-lg text-slate-300 leading-relaxed"></p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="startQuiz()" class="px-8 py-4 rounded-xl border-2 border-indigo-600 text-indigo-400 font-bold hover:bg-indigo-950 transition-colors">
+                        Retake Training
+                    </button>
+                    <button onclick="goHome()" class="px-8 py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold shadow-[0_0_20px_rgba(99,102,241,0.4)] hover:shadow-[0_0_30px_rgba(99,102,241,0.6)] transition-all">
+                        Return to Headquarters
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // --- DATA ---
+        const astronauts = [
+            {
+                id: 'christina',
+                name: 'Christina Koch',
+                role: 'Mission Specialist',
+                image: 'Christina Koch.webp',
+                gradient: 'from-cyan-500 to-blue-600',
+                quote: "The seemingly impossible becomes possible if you just believe in it and are willing to work hard and come together.",
+                sections: {
+                    journey: "Christina was a 'pragmatic dreamer.' She loved math and science, but knew the odds of becoming an astronaut were against her. She decided to pursue what she loved anyway: the outdoors, the ocean, mountains, and looking at the vast night sky that made her feel wonderfully small.",
+                    struggles: "Her defining philosophy is: 'Do what scares you.' She had to overcome her fears by traveling to the harsh cold of Antarctica, opening the airlock into the darkness of space, and strapping herself to a rocket.",
+                    teamwork: "Christina believes that no matter the challenge, when people believe in you—and you know they believe in you—even the scariest obstacles become easier to face.",
+                    goal: "She is drawn to solving problems in harsh environments. To her, the moon is a 'witness plate' of history—everything that has ever happened to it is still written on its surface."
+                }
+            },
+            {
+                id: 'victor',
+                name: 'Victor Glover',
+                role: 'Pilot',
+                image: 'Victor Glover.webp',
+                gradient: 'from-orange-500 to-red-600',
+                quote: "Addressing self-doubt was a part of swinging for the fence... and doing something challenging.",
+                sections: {
+                    journey: "Victor was 10 years old when he saw the Challenger tragedy, which showed him how much the world looked up to astronauts. He was a first-generation college student who initially had more confidence in his athletic abilities on the football field than his academic abilities in the lab.",
+                    struggles: "His biggest fear to overcome was self-doubt. He wasn't sure if he had what it took to compete with his classmates. He had to 'swing for the fences' to push through that doubt and earn his engineering degree.",
+                    teamwork: "Victor celebrates the Artemis mission because it represents a new, international story. The spaceship is built by multiple countries, and the crew is diverse, featuring men and women from different backgrounds working as one.",
+                    goal: "As Pilot, Victor will get to fly the spacecraft by hand for an hour and a half! He stays hyper-focused on the serious risks of the mission rather than just getting 'excited', aiming to successfully pass the baton to the Artemis III crew."
+                }
+            },
+            {
+                id: 'jeremy',
+                name: 'Jeremy Hansen',
+                role: 'Mission Specialist (CSA)',
+                image: 'Jeremy Hansen.webp',
+                gradient: 'from-emerald-500 to-teal-600',
+                quote: "You don't go to the moon on your own... you have to go as a team.",
+                sections: {
+                    journey: "Jeremy grew up on a farm in Ontario, Canada, where he learned the value of hard work from his dad. He had a vivid imagination, turning his childhood treehouse into a spaceship using old dials, controls, and circuit breakers he found in the barn.",
+                    struggles: "He admits his biggest impediment was himself. Whenever little things got in his way, his immediate thought was that his goal was ruined. He had to learn persistence to push through those moments of self-doubt.",
+                    teamwork: "Jeremy realized early on that you can't achieve massive goals alone. The most important thing he did was share his dreams with others. When he stumbled, it was his community and mentors who lifted him back up.",
+                    goal: "He loves when humanity sets massive goals. Taught by Indigenous mentors, he thinks of the moon as 'Grandmother Moon'—a beautiful, unifying force that connects different cultures all sharing the same night sky."
+                }
+            },
+            {
+                id: 'reid',
+                name: 'Reid Wiseman',
+                role: 'Commander',
+                image: 'Reid Wiseman.webp',
+                gradient: 'from-purple-500 to-indigo-600',
+                quote: "I haven't always done it well, but I've always shown up and tried as hard as I possibly can.",
+                sections: {
+                    journey: "Growing up near a National Guard base, Reid watched A-10 jets fly over his house and dreamed of being up there. He joined the Navy because he wanted the ultimate freedom of flying jets off aircraft carriers alone in the middle of the Pacific Ocean.",
+                    struggles: "Reid had to overcome a fear of heights! But his greatest challenge in life was losing his wife to cancer in 2020. He had to navigate the immense difficulty of working a full-time, demanding job while raising his two daughters as a single parent.",
+                    teamwork: "He credits his success to a massive combination of people: his parents, his brother, his friends from marching band, and mentors who kept him on the path to success but also gave him the freedom to fail, regroup, and carry on.",
+                    goal: "To Reid, the moon is the ultimate connector of human life on Earth. Whether his friends are 20 miles away or halfway across the planet, they can all look up and see the exact same moon."
+                }
+            }
+        ];
+
+        const quizQuestions = [
+            {
+                question: "You have a massive dream, but the odds seem impossible and you are genuinely afraid of the next step. What should you do?",
+                answers: [
+                    { text: "Give up and find an easier, safer dream.", correct: false },
+                    { text: "Lean into it. 'Do what scares you.' Let the belief of others give you strength.", correct: true },
+                    { text: "Wait until you no longer feel any fear before trying.", correct: false }
+                ],
+                explanation: "Christina Koch teaches us to 'Do what scares you.' Fear doesn't mean you shouldn't do it; it means you're growing!"
+            },
+            {
+                question: "You are attempting a difficult academic goal, but you feel like you don't belong and doubt your own intelligence compared to others. What is the best approach?",
+                answers: [
+                    { text: "Rely only on your physical/athletic talents instead.", correct: false },
+                    { text: "Hide your struggles so nobody knows you are having a hard time.", correct: false },
+                    { text: "Acknowledge the self-doubt, 'swing for the fences', and put in the hard work.", correct: true }
+                ],
+                explanation: "Victor Glover doubted his academic abilities as a first-generation college student, but he swung for the fences and earned an engineering degree!"
+            },
+            {
+                question: "You face a setback and your immediate thought is 'Well, my goal is out the window now.' How do you overcome this?",
+                answers: [
+                    { text: "Share your struggles; rely on your team and mentors to lift you back up.", correct: true },
+                    { text: "Go to your treehouse and decide to do it all by yourself.", correct: false },
+                    { text: "Complain about the setback until someone fixes it.", correct: false }
+                ],
+                explanation: "Jeremy Hansen learned that we are often our own biggest impediments. You don't go to the moon alone—you go as a team!"
+            },
+            {
+                question: "You encounter deep, overwhelming personal hardships and failures on your journey. What defines true perseverance?",
+                answers: [
+                    { text: "Never failing in the first place.", correct: false },
+                    { text: "Showing up every single day and trying as hard as you possibly can, even when it's not perfect.", correct: true },
+                    { text: "Walking away because the universe is telling you to stop.", correct: false }
+                ],
+                explanation: "Reid Wiseman faced incredible personal loss, but his philosophy is to give yourself the grace to fail, regroup, and always show up trying your best."
+            }
+        ];
+
+        // --- STATE ---
+        let activeAstronaut = null;
+        let currentTab = 'journey';
+        let currentQ = 0;
+        let score = 0;
+        let quizAnswered = false;
+
+        // --- INITIALIZATION ---
+        window.onload = () => {
+            generateStars();
+            renderAstronautGrid();
+        };
+
+        function generateStars() {
+            const container = document.getElementById('star-container');
+            for (let i = 0; i < 30; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.width = `${Math.random() * 3}px`;
+                star.style.height = star.style.width;
+                star.style.animationDelay = `${Math.random() * 2}s`;
+                star.style.animationDuration = `${2 + Math.random() * 3}s`;
+                container.appendChild(star);
+            }
+        }
+
+        function renderAstronautGrid() {
+            const grid = document.getElementById('astronaut-grid');
+            grid.innerHTML = '';
+            
+            astronauts.forEach(astro => {
+                const card = document.createElement('button');
+                card.className = "group relative bg-slate-900/80 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(99,102,241,0.3)] hover:border-indigo-500/50 overflow-hidden flex flex-col items-center md:items-start";
+                card.onclick = () => openDossier(astro.id);
+                
+                card.innerHTML = `
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${astro.gradient}"></div>
+                    <img src="${astro.image}" alt="${astro.name}" class="w-24 h-24 rounded-full object-cover border-2 border-slate-600 mb-4 transform group-hover:scale-105 transition-transform duration-300 shadow-lg">
+                    <h3 class="text-2xl font-bold text-white mb-1 text-center md:text-left w-full">${astro.name}</h3>
+                    <p class="text-indigo-300 font-medium text-sm mb-4 text-center md:text-left w-full">${astro.role}</p>
+                    <p class="text-slate-400 text-sm line-clamp-3 italic text-center md:text-left">"${astro.quote}"</p>
+                    <div class="mt-6 flex items-center justify-center md:justify-start w-full text-indigo-400 text-sm font-semibold group-hover:text-indigo-300">
+                        Access Dossier <i class="fa-solid fa-chevron-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // --- NAVIGATION ---
+        function hideAllViews() {
+            document.getElementById('home-view').classList.add('hidden');
+            document.getElementById('dossier-view').classList.add('hidden');
+            document.getElementById('quiz-view').classList.add('hidden');
+            document.getElementById('results-view').classList.add('hidden');
+        }
+
+        function goHome() {
+            hideAllViews();
+            document.getElementById('home-view').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // --- DOSSIER LOGIC ---
+        function openDossier(id) {
+            activeAstronaut = astronauts.find(a => a.id === id);
+            
+            // Populate Data
+            document.getElementById('dossier-name').textContent = activeAstronaut.name;
+            document.getElementById('dossier-role').textContent = activeAstronaut.role;
+            document.getElementById('dossier-quote').textContent = `"${activeAstronaut.quote}"`;
+            document.getElementById('dossier-img').src = activeAstronaut.image;
+            
+            const header = document.getElementById('dossier-header');
+            header.className = `relative flex flex-col md:flex-row items-center px-8 py-10 md:px-12 gap-8 overflow-hidden bg-gradient-to-r ${activeAstronaut.gradient}`;
+            
+            switchTab('journey'); // Default tab
+            
+            hideAllViews();
+            document.getElementById('dossier-view').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function switchTab(tabId) {
+            currentTab = tabId;
+            document.getElementById('dossier-content').textContent = activeAstronaut.sections[tabId];
+            
+            // Update Tab Styling
+            document.querySelectorAll('.dossier-tab').forEach(tab => {
+                tab.classList.remove('tab-active', 'bg-indigo-600', 'text-white');
+                tab.classList.add('bg-slate-800', 'text-slate-400');
+            });
+            
+            const activeBtn = document.getElementById(`tab-${tabId}`);
+            activeBtn.classList.remove('bg-slate-800', 'text-slate-400');
+            activeBtn.classList.add('tab-active');
+        }
+
+        // --- QUIZ LOGIC ---
+        function startQuiz() {
+            currentQ = 0;
+            score = 0;
+            renderQuestion();
+            hideAllViews();
+            document.getElementById('quiz-view').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderQuestion() {
+            quizAnswered = false;
+            document.getElementById('quiz-explanation-box').classList.add('hidden');
+            document.getElementById('quiz-progress').textContent = `Scenario ${currentQ + 1} of ${quizQuestions.length}`;
+            
+            const qData = quizQuestions[currentQ];
+            document.getElementById('quiz-question').textContent = qData.question;
+            
+            const answersContainer = document.getElementById('quiz-answers');
+            answersContainer.innerHTML = '';
+            
+            qData.answers.forEach((ans, index) => {
+                const btn = document.createElement('button');
+                btn.className = "quiz-btn w-full text-left p-5 rounded-xl border-2 transition-all duration-300 text-lg bg-slate-800 border-slate-600 text-slate-200 hover:bg-slate-700 hover:border-indigo-400";
+                btn.textContent = ans.text;
+                btn.onclick = () => handleAnswer(index, ans.correct);
+                answersContainer.appendChild(btn);
+            });
+
+            // Update next button text
+            const nextBtn = document.getElementById('quiz-next-btn');
+            nextBtn.innerHTML = currentQ < quizQuestions.length - 1 
+                ? 'Next Scenario <i class="fa-solid fa-chevron-right"></i>' 
+                : 'View Mission Report <i class="fa-solid fa-chevron-right"></i>';
+        }
+
+        function handleAnswer(selectedIndex, isCorrect) {
+            if (quizAnswered) return;
+            quizAnswered = true;
+            
+            if (isCorrect) score++;
+
+            const buttons = document.querySelectorAll('.quiz-btn');
+            const qData = quizQuestions[currentQ];
+
+            buttons.forEach((btn, index) => {
+                btn.disabled = true;
+                btn.classList.remove('hover:bg-slate-700', 'hover:border-indigo-400');
+                
+                if (qData.answers[index].correct) {
+                    btn.classList.replace('bg-slate-800', 'bg-emerald-900/50');
+                    btn.classList.replace('border-slate-600', 'border-emerald-500');
+                    btn.classList.replace('text-slate-200', 'text-emerald-200');
+                    btn.classList.add('shadow-[0_0_15px_rgba(16,185,129,0.3)]');
+                } else if (index === selectedIndex) {
+                    btn.classList.replace('bg-slate-800', 'bg-red-900/50');
+                    btn.classList.replace('border-slate-600', 'border-red-500');
+                    btn.classList.replace('text-slate-200', 'text-red-200');
+                } else {
+                    btn.classList.add('opacity-50');
+                }
+            });
+
+            const explBox = document.getElementById('quiz-explanation-box');
+            const titleSpan = document.getElementById('quiz-result-title');
+            const textSpan = document.getElementById('quiz-explanation-text');
+
+            if (isCorrect) {
+                titleSpan.textContent = "Mission Success! ";
+                titleSpan.className = "text-emerald-400";
+            } else {
+                titleSpan.textContent = "Course Correction Needed. ";
+                titleSpan.className = "text-amber-400";
+            }
+            
+            textSpan.textContent = qData.explanation;
+            explBox.classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            if (currentQ < quizQuestions.length - 1) {
+                currentQ++;
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            hideAllViews();
+            document.getElementById('results-view').classList.remove('hidden');
+            
+            document.getElementById('results-score').textContent = `You scored ${score} out of 4`;
+            
+            const icon = document.getElementById('results-icon');
+            const message = document.getElementById('results-message');
+            
+            if (score === 4) {
+                icon.className = "fa-solid fa-award text-7xl mx-auto mb-6 text-yellow-400 drop-shadow-[0_0_20px_rgba(250,204,21,0.5)]";
+                message.textContent = "Outstanding! You possess the exact mindset of an Artemis astronaut. You understand that fear is normal, teamwork is essential, and perseverance through failure is the only way to reach the moon.";
+            } else {
+                icon.className = "fa-solid fa-award text-7xl mx-auto mb-6 text-indigo-400";
+                message.textContent = "Great effort! Remember, the path to the moon is paved with setbacks. Review the crew dossiers to absorb their wisdom on overcoming self-doubt and relying on your team.";
+            }
+        }
+    </script>
+</body>
+</html>
